@@ -6,7 +6,7 @@ const he = require('he');
 const util = require('util');
 
 const { headerConfig, timeTableUrl, mainUrl, startTimes, endTimes } = require('../utils/config');
-const { writeToFile } = require('../utils/utils');
+const { writeToFile, parseToChinese } = require('../utils/utils');
 
 async function getTimeTable(cookie, stuId) {
 	try {
@@ -112,26 +112,6 @@ async function getTimeByConditions(cookie, stuId) {
 }
 
 /*===========================================updated=============================================*/
-/**
- * [保留空格 转换为汉字]
- * @param  {[type]} data [description]
- * @return {[type]}      [description]
- */
-const parseToChinese = (data) => {
-	const dataArr = [];
-	data.forEach(item => {
-		const temp = [];
-		item.forEach(e => {
-			if (e === '&#xA0;')
-				temp.push('');
-			else
-				temp.push(he.decode(e));
-		});
-		dataArr.push(temp);
-	});
-
-	return dataArr;
-}
 /**
  * [带时间节点的格式]
  * @param  {[type]} dataArr [description]

@@ -45,7 +45,7 @@ async function getExamList(cookie, teacherId) {
     ret.push(obj)
   }
 
-  console.log(tableData)
+  // console.log(tableData)
 
   return ret
 

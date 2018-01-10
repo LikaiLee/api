@@ -67,7 +67,7 @@ const writeToFile = (content) => {
  * @param  {[type]} arr [description]
  * @return {[type]}     [description]
  */
-const uniq = (arr) => Array.from(new Set(arr));
+const uniq = (arr) => Array.from(new Set(...arr));
 
 /**
  * [从数组中删除特定元素]
