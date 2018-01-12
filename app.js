@@ -5,7 +5,7 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyParser = require('koa-bodyparser');
 const logger = require('koa-logger');
-const cors = require('koa2-cors');
+const cors = require('koa-cors');
 
 const { writeToFile } = require('./utils/utils');
 
@@ -13,6 +13,7 @@ const { writeToFile } = require('./utils/utils');
 const timeTable = require('./routes/timeTable');
 const exam = require('./routes/exam');
 const teacher = require('./routes/teacher');
+const hdu = require('./routes/hdu');
 
 // error handler
 onerror(app);
@@ -42,5 +43,6 @@ app.use(bodyParser());
 app.use(timeTable.routes(), timeTable.allowedMethods());
 app.use(exam.routes(), exam.allowedMethods());
 app.use(teacher.routes(), teacher.allowedMethods());
+app.use(hdu.routes(), hdu.allowedMethods());
 
 module.exports = app;
